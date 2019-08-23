@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  get 'page/index'
+  root to: 'page#dashboard'
 
-  root to: 'page#index'
+  namespace :page do
+    get 'dashboard'
+    get 'about_us'
+  end
+
   resources :grants
   resources :events
   resources :papers

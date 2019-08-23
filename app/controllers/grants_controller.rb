@@ -1,5 +1,6 @@
 class GrantsController < ApplicationController
   before_action :set_grant, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /grants
   # GET /grants.json
