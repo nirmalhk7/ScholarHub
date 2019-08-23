@@ -1,8 +1,15 @@
 <p id="notice"><%= notice %></p>
-
-<p>
+<div class="main-card mb-3 card mt-4">
+  <div class="card-header">
+    <div class="card-title">
+      Papers Information
+    </div>
+  </div>
+  <div class="card-body">
+    <p>
+  </div>
   <strong>User:</strong>
-  <%= @paper.user %>
+</div>    <%= @paper.user %>
 </p>
 
 <p>
@@ -25,5 +32,8 @@
   <%= @paper.abstract %>
 </p>
 
-<%= link_to 'Edit', edit_paper_path(@paper) %> |
+
 <%= link_to 'Back', papers_path %>
+
+
+

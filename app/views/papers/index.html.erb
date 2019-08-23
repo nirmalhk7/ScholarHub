@@ -44,14 +44,15 @@
       </div>
 
       <div class='list'>
-        <table>
+        <table class="mb-0 table table-striped table-hover">
           <thead>
           <tr>
             <th>Title</th>
             <th>Author</th>
-            <th>Journal link</th>
+
             <th>Institute</th>
             <th>Fields</th>
+            <th>Journal link</th>
           </tr>
           </thead>
 
@@ -60,9 +61,10 @@
             <tr>
               <td><%= link_to paper.title, paper_path(paper) %></td>
               <td><%= paper.user.name %></td>
-              <td><%= link_to 'Journal Link', paper.journal_link %></td>
+
               <td><%= paper.institute.name %></td>
               <td><%= paper.fields %></td>
+              <td><%= link_to 'Journal Link', paper.journal_link, class: "mb-2 mr-2  btn btn-primary btn-sm"  %></td>
             </tr>
           <% end %>
           </tbody>

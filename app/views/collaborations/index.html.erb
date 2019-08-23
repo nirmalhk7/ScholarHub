@@ -2,8 +2,12 @@
 <div class="main-card mb-3 card mt-4">
   <div class="card-header">
     <div class="card-title">
-      Collaborations
+      Collaboration Requests
     </div>
+    <div style="margin-left: auto">
+      <%= link_to 'New Collaboration Request', new_collaboration_path, class: "mb-2 mr-2  btn btn-primary"  %>
+    </div>
+
   </div>
   <div class="card-body">
     <table>
@@ -37,4 +41,3 @@
 
 <br>
 
-<%= link_to 'New Collaboration', new_collaboration_path %>
