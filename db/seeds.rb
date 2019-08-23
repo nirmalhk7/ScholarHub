@@ -130,12 +130,14 @@ puts 'Events created'
   paper_fields = [interests.sample, interests.sample]
   abstract = "A paper on the interesting fields of #{paper_fields[0]} and #{paper_fields[1]}"
   journal_link = 'https://localhost:3000/papers'
+  title = "A paper on #{paper_fields.join(', ')}"
   Paper.create!(
     user: user,
     institute_id: user.institute_id,
     fields: paper_fields,
     journal_link: journal_link,
-    abstract: abstract
+    abstract: abstract,
+    title: title
   )
 end
 puts 'Papers created'
