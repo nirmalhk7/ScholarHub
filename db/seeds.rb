@@ -51,6 +51,17 @@ interests = {
   ],
 }
 
+User.create(
+  name: 'Abhishek Kumar',
+  email: 'abhishekkumar@gmail.com',
+  password: 'passwd',
+  institute_id: 1,
+  degree_id: 1,
+  branch_id: 1,
+  phone_numbers: [],
+  interests: []
+)
+
 100.times do |i|
   name = Faker::Name.name
   email = Faker::Internet.email(name: name)

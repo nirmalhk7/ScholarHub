@@ -10,34 +10,80 @@
 
   </div>
   <div class="card-body">
-    <table>
-      <thead>
-      <tr>
-        <th>User</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Fields</th>
-        <th colspan="3"></th>
-      </tr>
-      </thead>
+    <div class="statistics row">
+      <div class="col-md-4">
+        <div class="card mb-3 bg-primary widget-chart text-white card-border">
+          <div class="widget-numbers"><%= @collaborations_count %></div>
+          <div class="widget-subheading">Possible Collaborations</div>
+        </div>
+      </div>
 
-      <tbody>
-      <% @collaborations.each do |collaboration| %>
-        <tr>
-          <td><%= collaboration.user %></td>
-          <td><%= collaboration.title %></td>
-          <td><%= collaboration.description %></td>
-          <td><%= collaboration.fields %></td>
-          <td><%= link_to 'Show', collaboration, class: "mb-2 mr-2  btn btn-info" %></td>
-          <td><%= link_to 'Edit', edit_collaboration_path(collaboration), class: "mb-2 mr-2 btn-transition btn btn-outline-warning" %></td>
-         </tr>
+      <div class="col-md-4">
+        <div class="card mb-3 bg-success widget-chart text-white card-border">
+          <div class="widget-numbers"><%= @scholar_count %></div>
+          <div class="widget-subheading">Research Scholars Involved</div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card mb-3 bg-warning widget-chart text-white card-border">
+          <div class="widget-numbers"><%= @fields_covered %></div>
+          <div class="widget-subheading">Spanning Area of Interests</div>
+        </div>
+      </div>
+    </div>
+
+    <div class='filters'>
+      <%= form_for_filterrific @filterrific do |f| %>
+        <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
+          <%= f.label :with_title, 'Search by Title' %>
+          <%= f.text_field :with_title, class: "form-control"%>
+        </div>
+
+        <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
+          <%= f.label :with_description, 'Search by Description' %>
+          <%= f.text_field :with_description, class: "form-control" %>
+        </div>
+
+        <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
+          <%= f.label :with_fields, 'Search by Relevant Fields' %>
+          <%= f.text_field :with_fields, class: "form-control" %>
+        </div>
+
+        <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
+          <%= f.label :with_author, 'Search by Creator' %>
+          <%= f.text_field :with_author, class: "form-control" %>
+        </div>
+
+        <div>
+          <%= f.submit 'Search', class: "mb-2 mr-2  btn btn-primary"  %>
       <% end %>
-      </tbody>
-    </table>
+    </div>
+
+    <div class='list'>
+      <table>
+        <thead>
+        <tr>
+          <th>Title</th>
+          <th>Created By</th>
+          <th>Description</th>
+          <th>Fields</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @collaborations.each do |collaboration| %>
+          <tr>
+            <td><%= link_to collaboration.title, collaboration_path(collaboration) %></td>
+            <td><%= collaboration.user.name %></td>
+            <td><%= collaboration.description %></td>
+            <td><%= collaboration.fields.join(', ') %></td>
+           </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <%= render partial: 'partials/pagination', locals: {objects: @collaborations} %>
   </div>
 </div>
-
-
-
-<br>
 

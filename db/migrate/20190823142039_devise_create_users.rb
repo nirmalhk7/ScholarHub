@@ -35,9 +35,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :name, default: ''
       t.text :description, default: ''
       t.json :education, default: ''
-      t.text :phone_numbers, default: ''
+      t.text :phone_numbers, default: '[]'
       t.json :achievements, default: ''
-      t.text :interests, default: ''
+      t.text :interests, default: '[]'
       t.references :institute
       t.references :branch
       t.references :degree
