@@ -1,24 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @collaboration.user %>
-</p>
+<div class="main-card mb-3 card mt-4">
+  <div class="card-header">
+    <div class="card-title">
+      Collaboration Request
+    </div>
+    <div style="margin-left: auto">
 
-<p>
-  <strong>Title:</strong>
-  <%= @collaboration.title %>
-</p>
+      <%= link_to 'Edit', edit_collaboration_path(@collaboration), class: "mb-2 mr-2 btn-transition btn btn-outline-warning" %>
+      <%= link_to 'Back', collaborations_path, class: "mb-2 mr-2  btn btn-primary" %>
+    </div>
+  </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @collaboration.description %>
-</p>
+  <div class="card-body">
+    <p>
+      <strong>User:</strong>
+      <%= @collaboration.user %>
+    </p>
 
-<p>
-  <strong>Fields:</strong>
-  <%= @collaboration.fields %>
-</p>
+    <p>
+      <strong>Title:</strong>
+      <%= @collaboration.title %>
+    </p>
 
-<%= link_to 'Edit', edit_collaboration_path(@collaboration) %> |
-<%= link_to 'Back', collaborations_path %>
+    <p>
+      <strong>Description:</strong>
+      <%= @collaboration.description %>
+    </p>
+
+    <p>
+      <strong>Fields:</strong>
+      <%= @collaboration.fields %>
+    </p>
+
+  </div>
+</div>
+
