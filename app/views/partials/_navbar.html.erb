@@ -41,19 +41,26 @@
       <ul class="header-menu nav">
         <li class="nav-item">
             <%= link_to collaborations_path, class: "nav-link" do %>
-              <i class='nav-link-icon fa fa-database'> </i>Collaboration
+              <i class='nav-link-icon fa fa-user'> </i>Collaboration
             <% end %>
         </li>
         <li class="btn-group nav-item">
 
-          <%= link_to collaborations_path, class: "nav-link" do %>
-            <i class='nav-link-icon fa fa-edit'> </i>Events
+          <%= link_to events_path, class: "nav-link" do %>
+            <i class='nav-link-icon fa fa-users'> </i>Events
           <% end %>
         </li>
         <li class="dropdown nav-item">
 
           <%= link_to papers_path, class: "nav-link" do %>
-            <i class='nav-link-icon fa fa-cog'> </i>Papers
+            <i class='nav-link-icon fa fa-th-list'> </i>Papers
+          <% end %>
+
+        </li>
+        <li class="dropdown nav-item">
+
+          <%= link_to grants_path, class: "nav-link" do %>
+            <i class='nav-link-icon fa fa-usd'> </i>Grants
           <% end %>
         </li>
       </ul>

@@ -2,7 +2,7 @@
 <div class="main-card mb-3 card mt-4">
   <div class="card-header">
     <div class="card-title">
-      Papers
+      Search Papers
     </div>
   </div>
   <div class="card-body">
@@ -13,33 +13,33 @@
 
     <div class='filters'>
       <%= form_for_filterrific @filterrific do |f| %>
-        <div>
+        <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
           <%= f.label :with_journal_link, 'Search by Journal Link' %>
-          <%= f.text_field :with_journal_link %>
+          <%= f.text_field :with_journal_link, class: "form-control"%>
         </div>
 
-        <div>
+        <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
           <%= f.label :with_institute, 'Search by Institute' %>
-          <%= f.text_field :with_institute %>
+          <%= f.text_field :with_institute, class: "form-control" %>
         </div>
 
-        <div>
+        <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
           <%= f.label :with_fields, 'Search by Relevant Fields' %>
-          <%= f.text_field :with_fields %>
+          <%= f.text_field :with_fields, class: "form-control" %>
         </div>
 
-        <div>
+        <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
           <%= f.label :with_abstract, 'Search by Abstract' %>
-          <%= f.text_field :with_abstract %>
+          <%= f.text_field :with_abstract, class: "form-control"  %>
         </div>
 
-        <div>
+        <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
           <%= f.label :with_author, 'Search by Author' %>
-          <%= f.text_field :with_author %>
+          <%= f.text_field :with_author, class: "form-control" %>
         </div>
 
         <div>
-          <%= f.submit 'Search' %>
+          <%= f.submit 'Search', class: "mb-2 mr-2  btn btn-primary"  %>
       <% end %>
       </div>
 
