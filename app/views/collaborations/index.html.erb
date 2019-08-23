@@ -1,32 +1,39 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Collaborations</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Fields</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @collaborations.each do |collaboration| %>
+<div class="main-card mb-3 card mt-4">
+  <div class="card-header">
+    <div class="card-title">
+      Collaborations
+    </div>
+  </div>
+  <div class="card-body">
+    <table>
+      <thead>
       <tr>
-        <td><%= collaboration.user %></td>
-        <td><%= collaboration.title %></td>
-        <td><%= collaboration.description %></td>
-        <td><%= collaboration.fields %></td>
-        <td><%= link_to 'Show', collaboration %></td>
-        <td><%= link_to 'Edit', edit_collaboration_path(collaboration) %></td>
-        <td><%= link_to 'Destroy', collaboration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>User</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Fields</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      </thead>
+
+      <tbody>
+      <% @collaborations.each do |collaboration| %>
+        <tr>
+          <td><%= collaboration.user %></td>
+          <td><%= collaboration.title %></td>
+          <td><%= collaboration.description %></td>
+          <td><%= collaboration.fields %></td>
+          <td><%= link_to 'Show', collaboration, class: "mb-2 mr-2  btn btn-info" %></td>
+          <td><%= link_to 'Edit', edit_collaboration_path(collaboration), class: "mb-2 mr-2 btn-transition btn btn-outline-warning" %></td>
+         </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
 
 <br>
 

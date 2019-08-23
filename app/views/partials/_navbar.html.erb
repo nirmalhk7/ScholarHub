@@ -40,22 +40,21 @@
       </div>
       <ul class="header-menu nav">
         <li class="nav-item">
-          <a href="javascript:void(0);" class="nav-link">
-            <i class="nav-link-icon fa fa-database"> </i>
-            Statistics
-          </a>
+            <%= link_to collaborations_path, class: "nav-link" do %>
+              <i class='nav-link-icon fa fa-database'> </i>Collaboration
+            <% end %>
         </li>
         <li class="btn-group nav-item">
-          <a href="javascript:void(0);" class="nav-link">
-            <i class="nav-link-icon fa fa-edit"></i>
-            Projects
-          </a>
+
+          <%= link_to collaborations_path, class: "nav-link" do %>
+            <i class='nav-link-icon fa fa-edit'> </i>Events
+          <% end %>
         </li>
         <li class="dropdown nav-item">
-          <a href="javascript:void(0);" class="nav-link">
-            <i class="nav-link-icon fa fa-cog"></i>
-            Settings
-          </a>
+
+          <%= link_to papers_path, class: "nav-link" do %>
+            <i class='nav-link-icon fa fa-cog'> </i>Papers
+          <% end %>
         </li>
       </ul>
 
