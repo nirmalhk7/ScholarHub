@@ -37,8 +37,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.json :education, default: ''
       t.text :phone_numbers, default: ''
       t.json :achievements, default: ''
+      t.text :interests, default: ''
       t.references :institute
       t.references :branch
+      t.references :degree
 
       t.timestamps null: false
     end

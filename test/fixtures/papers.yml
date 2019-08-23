@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  journal_link: MyString
+  institute: one
+  fields: MyText
+  abstract: MyText
+
+two:
+  user: two
+  journal_link: MyString
+  institute: two
+  fields: MyText
+  abstract: MyText
