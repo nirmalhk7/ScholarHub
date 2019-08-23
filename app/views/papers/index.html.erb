@@ -2,34 +2,67 @@
 
 <h1>Papers</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Journal link</th>
-      <th>Institute</th>
-      <th>Fields</th>
-      <th>Abstract</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div id='featured-paper'>
+  <%# Featured Paper is stored as `@featured_paper` %>
+  <%= @featured_paper.abstract %>
+</div>
 
-  <tbody>
-    <% @papers.each do |paper| %>
+<div class='filters'>
+  <%= form_for_filterrific @filterrific do |f| %>
+    <div>
+      <%= f.label :with_journal_link, 'Search by Journal Link' %>
+      <%= f.text_field :with_journal_link %>
+    </div>
+
+    <div>
+      <%= f.label :with_institute, 'Search by Institute' %>
+      <%= f.text_field :with_institute %>
+    </div>
+
+    <div>
+      <%= f.label :with_fields, 'Search by Relevant Fields' %>
+      <%= f.text_field :with_fields %>
+    </div>
+    
+    <div>
+      <%= f.label :with_abstract, 'Search by Abstract' %>
+      <%= f.text_field :with_abstract %>
+    </div>
+
+    <div>
+      <%= f.label :with_author, 'Search by Author' %>
+      <%= f.text_field :with_author %>
+    </div>
+
+    <div>
+      <%= f.submit 'Search' %>
+  <% end %>
+</div>
+
+<div class='list'>
+  <table>
+    <thead>
       <tr>
-        <td><%= paper.user %></td>
-        <td><%= paper.journal_link %></td>
-        <td><%= paper.institute %></td>
-        <td><%= paper.fields %></td>
-        <td><%= paper.abstract %></td>
-        <td><%= link_to 'Show', paper %></td>
-        <td><%= link_to 'Edit', edit_paper_path(paper) %></td>
-        <td><%= link_to 'Destroy', paper, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Journal link</th>
+        <th>Institute</th>
+        <th>Fields</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @papers.each do |paper| %>
+        <tr>
+          <td><%= link_to paper.title, paper_path(paper) %></td>
+          <td><%= paper.user.name %></td>
+          <td><%= link_to 'Journal Link', paper.journal_link %></td>
+          <td><%= paper.institute.name %></td>
+          <td><%= paper.fields %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<%= link_to 'New Paper', new_paper_path %>
+<%= render partial: 'layouts/pagination', locals: {objects: @papers} %>

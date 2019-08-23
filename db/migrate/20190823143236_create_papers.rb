@@ -6,6 +6,7 @@ class CreatePapers < ActiveRecord::Migration[5.2]
       t.references :institute, foreign_key: true
       t.text :fields
       t.text :abstract
+      t.string :title
 
       t.timestamps
     end

@@ -10,17 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2019_08_23_142039) do
-=======
-ActiveRecord::Schema.define(version: 2019_08_23_143510) do
->>>>>>> 03906de717a9e4050df57b27f1206fb7aafc523e
+ActiveRecord::Schema.define(version: 2019_08_23_175836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
-=======
   create_table "branches", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -85,11 +79,11 @@ ActiveRecord::Schema.define(version: 2019_08_23_143510) do
     t.text "abstract"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
     t.index ["institute_id"], name: "index_papers_on_institute_id"
     t.index ["user_id"], name: "index_papers_on_user_id"
   end
 
->>>>>>> 03906de717a9e4050df57b27f1206fb7aafc523e
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -101,13 +95,6 @@ ActiveRecord::Schema.define(version: 2019_08_23_143510) do
     t.json "education", default: ""
     t.text "phone_numbers", default: ""
     t.json "achievements", default: ""
-<<<<<<< HEAD
-    t.bigint "institute_id"
-    t.bigint "branch_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["branch_id"], name: "index_users_on_branch_id"
-=======
     t.text "interests", default: ""
     t.bigint "institute_id"
     t.bigint "branch_id"
@@ -116,18 +103,14 @@ ActiveRecord::Schema.define(version: 2019_08_23_143510) do
     t.datetime "updated_at", null: false
     t.index ["branch_id"], name: "index_users_on_branch_id"
     t.index ["degree_id"], name: "index_users_on_degree_id"
->>>>>>> 03906de717a9e4050df57b27f1206fb7aafc523e
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["institute_id"], name: "index_users_on_institute_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-<<<<<<< HEAD
-=======
   add_foreign_key "collaborations", "institutes"
   add_foreign_key "collaborations", "users"
   add_foreign_key "events", "institutes"
   add_foreign_key "papers", "institutes"
   add_foreign_key "papers", "users"
->>>>>>> 03906de717a9e4050df57b27f1206fb7aafc523e
 end
