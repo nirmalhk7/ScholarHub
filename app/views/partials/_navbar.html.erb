@@ -1,6 +1,6 @@
 <div class="app-header header-shadow">
   <div class="app-header__logo">
-    <div class="logo-src">ScholarHub</div>
+    <div class="logo-src">Scholar Hub</div>
     <div class="header__pane ml-auto">
       <div>
         <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -31,6 +31,7 @@
   </div>
   <div class="app-header__content">
     <div class="app-header-left">
+      <!-- 
       <div class="search-wrapper">
         <div class="input-holder">
           <input type="text" class="search-input" placeholder="Type to search">
@@ -38,32 +39,48 @@
         </div>
         <button class="close"></button>
       </div>
-      <ul class="header-menu nav">
-        <li class="nav-item">
+      -->
+
+      <% if user_signed_in? %>
+        <ul class="header-menu nav">
+          <li class="nav-item">
+              <%= link_to collaborations_path, class: "nav-link" do %>
+                <i class='nav-link-icon fa fa-database'> </i>Collaboration
+              <% end %>
+          </li>
+
+          <li class="btn-group nav-item">
             <%= link_to collaborations_path, class: "nav-link" do %>
               <i class='nav-link-icon fa fa-user'> </i>Collaboration
             <% end %>
-        </li>
-        <li class="btn-group nav-item">
+          </li>
+
+          <li class="dropdown nav-item">
 
           <%= link_to events_path, class: "nav-link" do %>
             <i class='nav-link-icon fa fa-users'> </i>Events
           <% end %>
-        </li>
-        <li class="dropdown nav-item">
+          </li>
 
-          <%= link_to papers_path, class: "nav-link" do %>
-            <i class='nav-link-icon fa fa-th-list'> </i>Papers
-          <% end %>
+          <li class="dropdown nav-item">
+            <%= link_to papers_path, class: "nav-link" do %>
+              <i class='nav-link-icon fa fa-th-list'> </i>Papers
+            <% end %>
+          </li>
 
-        </li>
-        <li class="dropdown nav-item">
+          <li class="dropdown nav-item">
+            <%= link_to grants_path, class: "nav-link" do %>
+              <i class='nav-link-icon fa fa-usd'> </i>Grants
+            <% end %>
+          </li>
 
-          <%= link_to grants_path, class: "nav-link" do %>
-            <i class='nav-link-icon fa fa-usd'> </i>Grants
-          <% end %>
-        </li>
-      </ul>
+          <li class="nav-item">
+            <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+              <i class='nav-link-icon fa fa-circle-logout'> </i>Log Out
+            <% end %>
+          </li>
+        </ul>
+      <% end %>
 
     </div>
     <div class="app-header-right">

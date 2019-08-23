@@ -1,11 +1,21 @@
 <h2>Sign up</h2>
 
+<!-- You can delete these two lines -->
+<h3>Get in touch with like-minded people</h3>
+<h5>Work and accomplish goals together</h5>
+
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </div>
 
   <div class="field">
@@ -19,6 +29,21 @@
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :institute_id, 'Current Institute' %><br />
+    <%= f.collection_select :institute_id, Institute.all, :id, :name, prompt: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :degree_id, 'Current Degree' %><br />
+    <%= f.collection_select :degree_id, Degree.all, :id, :name, prompt: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :branch_id, 'Branch' %><br />
+    <%= f.collection_select :branch_id, Branch.all, :id, :name, prompt: true %>
   </div>
 
   <div class="actions">
