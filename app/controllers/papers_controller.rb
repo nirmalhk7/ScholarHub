@@ -11,6 +11,9 @@ class PapersController < ApplicationController
     )) || return
     @papers = @filterrific.find.page(params[:page]).includes(:user, :institute)
     @featured_paper = Paper.find(12)
+    @papers_count = Paper.count
+    @institutes_count = Paper.pluck(:institute_id).uniq.count
+    @fields_covered = Paper.pluck(:fields).flatten.uniq.count
   end
 
   # GET /papers/1

@@ -43,23 +43,22 @@
 
       <% if user_signed_in? %>
         <ul class="header-menu nav">
-          <li class="nav-item">
-              <%= link_to collaborations_path, class: "nav-link" do %>
-                <i class='nav-link-icon fa fa-database'> </i>Collaboration
-              <% end %>
+          <li class="dropdown nav-item">
+            <%= link_to page_dashboard_path, class: "nav-link" do %>
+              <i class='nav-link-icon fa fa-user'> </i>Dashboard
+            <% end %>
           </li>
 
-          <li class="btn-group nav-item">
+          <li class="dropdown nav-item">
             <%= link_to collaborations_path, class: "nav-link" do %>
               <i class='nav-link-icon fa fa-user'> </i>Collaboration
             <% end %>
           </li>
 
           <li class="dropdown nav-item">
-
-          <%= link_to events_path, class: "nav-link" do %>
-            <i class='nav-link-icon fa fa-users'> </i>Events
-          <% end %>
+            <%= link_to events_path, class: "nav-link" do %>
+              <i class='nav-link-icon fa fa-users'> </i>Events
+            <% end %>
           </li>
 
           <li class="dropdown nav-item">
@@ -74,7 +73,7 @@
             <% end %>
           </li>
 
-          <li class="nav-item">
+          <li class="dropdown nav-item">
             <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
               <i class='nav-link-icon fa fa-circle-logout'> </i>Log Out
             <% end %>
@@ -93,12 +92,14 @@
                   <div class="row">
 
                   </div>
-                  <div class="widget-heading">
-                    Researcher Name
-                  </div>
-                  <div class="widget-subheading">
-                    Institution Name
-                  </div>
+                  <% if current_user %>
+                    <div class="widget-heading">
+                      <%= current_user.name %>
+                    </div>
+                    <div class="widget-subheading">
+                      <%= current_user.institute.name %>
+                    </div>
+                  <% end %>
                 </a>
                 <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
                   <button type="button" tabindex="0" class="dropdown-item">User Account</button>

@@ -5,7 +5,14 @@ class GrantsController < ApplicationController
   # GET /grants
   # GET /grants.json
   def index
-    @grants = Grant.all
+    @filterrific = initialize_filterrific(
+      Grant,
+      params[:filterrific]
+    ) || return
+    @grants = @filterrific.find.page(params[:page])
+    @grants_count = Grant.count
+    @grants_this_year = Grant.before_deadline(Date.today + 365).count
+    @fields_covered = Grant.pluck(:fields).flatten.uniq.count
   end
 
   # GET /grants/1

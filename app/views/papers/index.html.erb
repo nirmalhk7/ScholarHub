@@ -2,13 +2,35 @@
 <div class="main-card mb-3 card mt-4">
   <div class="card-header">
     <div class="card-title">
-      Search Papers
+      Papers
     </div>
   </div>
   <div class="card-body">
     <div id='featured-paper'>
       <%# Featured Paper is stored as `@featured_paper` %>
       <%= @featured_paper.abstract %>
+    </div>
+
+    <div class="statistics row">
+      <div class="col-md-4">
+        <div class="card mb-3 bg-primary widget-chart text-white card-border">
+          <div class="widget-numbers"><%= @papers_count %></div>
+          <div class="widget-subheading">Papers published</div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card mb-3 bg-success widget-chart text-white card-border">
+          <div class="widget-numbers"><%= @institutes_count %></div>
+          <div class="widget-subheading">Institutes Involved</div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card mb-3 bg-primary widget-chart text-white card-border">
+          <div class="widget-numbers"><%= @fields_covered %></div>
+          <div class="widget-subheading">Spanning Area of Interests</div>
+      </div>
     </div>
 
     <div class='filters'>
@@ -49,9 +71,8 @@
           <tr>
             <th>Title</th>
             <th>Author</th>
-            <th>Journal link</th>
-            <th>Institute</th>
             <th>Fields</th>
+            <th>Journal link</th>
           </tr>
           </thead>
 
@@ -60,15 +81,14 @@
             <tr>
               <td><%= link_to paper.title, paper_path(paper) %></td>
               <td><%= paper.user.name %></td>
-              <td><%= link_to 'Journal Link', paper.journal_link %></td>
-              <td><%= paper.institute.name %></td>
-              <td><%= paper.fields %></td>
+              <td><%= paper.fields.join(', ') %></td>
+              <td><%= link_to 'Link', paper.journal_link %></td>
             </tr>
           <% end %>
           </tbody>
         </table>
       </div>
-      <%= render partial: 'layouts/pagination', locals: {objects: @papers} %>
+      <%= render partial: 'partials/pagination', locals: {objects: @papers} %>
     </div>
   </div>
 </div>

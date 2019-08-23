@@ -5,7 +5,14 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    (@filterrific = initialize_filterrific(
+      Event,
+      params[:filterrific]
+    )) || return
+    @upcoming_events = Event.count
+    @institutes_involved = Event.pluck(:institute_id).uniq.count
+    @fields_covered = Event.pluck(:fields).flatten.uniq.count
+    @events = @filterrific.find.page(params[:page]).includes(:institute)
   end
 
   # GET /events/1

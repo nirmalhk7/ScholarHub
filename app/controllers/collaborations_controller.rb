@@ -5,7 +5,14 @@ class CollaborationsController < ApplicationController
   # GET /collaborations
   # GET /collaborations.json
   def index
-    @collaborations = Collaboration.all
+    (@filterrific = initialize_filterrific(
+      Collaboration,
+      params[:filterrific]
+    )) || return
+    @collaborations_count = Collaboration.count
+    @scholar_count = Collaboration.pluck(:user_id).uniq.count
+    @fields_covered = Collaboration.pluck(:fields).flatten.uniq.count
+    @collaborations = @filterrific.find.page(params[:page]).includes(:user)
   end
 
   # GET /collaborations/1
