@@ -4,12 +4,15 @@ Rails.application.routes.draw do
       post 'add_message'
     end
   end
+
   root to: 'page#dashboard'
 
   namespace :page do
     get 'dashboard'
     get 'about_us'
   end
+
+  get 'profile/:id', to: 'users#show', as: 'users'
 
   resources :grants
   resources :events

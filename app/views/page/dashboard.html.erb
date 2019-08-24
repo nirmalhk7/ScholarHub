@@ -4,22 +4,24 @@
       <div class="card-header"><%= @featured_paper.title %></div>
       <div class="card-body">
         <em><h5 class="text-white card-title">Featured Paper</h5></em>
-
-        <%# Featured Paper is stored as `@featured_paper` %>
-        <%= @featured_paper.abstract %>
+        <p style="width: 50%;">
+          <%= @featured_paper.abstract %>
+        </p>
       </div>
       <div class="card-footer">
-        More
+        <%= link_to 'Read More', paper_path(@featured_paper) %>
       </div>
     </div>
     <div class="main-card mb-3 card">
       <div class="card-body">
-        <h5 class="card-title" style="padding-bottom: 1em;">Instant Messaging</h5>
+        <h5 class="card-title" style="padding-bottom: 1em;"><%= link_to 'Messages', conversations_path %></h5>
         <ul class="list-group">
-          <li class="list-group-item"><h5 class="list-group-item-heading">List group item heading&nbsp;<span class="badge badge-secondary badge-pill">14</span></h5>
-            <p class="list-group-item-text" style="margin-bottom: 0px">Last Seen 23 May</p></li>
-          <li class="list-group-item"><h5 class="list-group-item-heading">List group item heading</h5>
-            <p class="list-group-item-text" style="margin-bottom: 0px">Last Seen 32 May</p></li>
+          <% @last_conversations.each do |conversation| %>
+            <li class='list-group-item'>
+              <p class='list-group-item-heading'><%= conversation.partner(current_user.id).name %></p>
+              <em><p class='list-group-item-text'><%= conversation.messages.last.content %></p></em>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>
