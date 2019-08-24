@@ -1,3 +1,45 @@
+<div class="row">
+  <div class="col-md-6 col-xl-4">
+    <div class="card mb-3 widget-content bg-midnight-bloom">
+      <div class="widget-content-wrapper text-white">
+        <div class="widget-content-left">
+          <div class="widget-heading">Total Grants</div>
+          <div class="widget-subheading"><%= WEB_DEFAULTS[:website_name] %> 2019</div>
+        </div>
+        <div class="widget-content-right">
+          <div class="widget-numbers text-white"><span><%= @grants_count %></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-xl-4">
+    <div class="card mb-3 widget-content bg-arielle-smile">
+      <div class="widget-content-wrapper text-white">
+        <div class="widget-content-left">
+
+          <div class="widget-heading">Ending This Year</div>
+          <div class="widget-subheading">Grants Ending this Year </div>
+        </div>
+        <div class="widget-content-right">
+          <div class="widget-numbers text-white"><span><%= @grants_this_year %></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-xl-4">
+    <div class="card mb-3 widget-content bg-grow-early">
+      <div class="widget-content-wrapper text-white">
+        <div class="widget-content-left">
+          <div class="widget-heading">Research Interests</div>
+          <div class="widget-subheading">Spanning Area of Interests</div>
+        </div>
+        <div class="widget-content-right">
+          <div class="widget-numbers text-white"><span><%= @fields_covered %></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="main-card mb-3 card mt-4">
   <div class="card-header">
     <div class="card-title">
@@ -5,34 +47,11 @@
     </div>
   </div>
   <div class="card-body">
-    <div class="statistics row">
-      <div class="col-md-4">
-        <div class="card mb-3 bg-primary widget-chart text-white card-border">
-          <div class="widget-numbers"><%= @grants_count %></div>
-          <div class="widget-subheading">Total Grants</div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card mb-3 bg-success widget-chart text-white card-border">
-          <div class="widget-numbers"><%= @grants_this_year %></div>
-          <div class="widget-subheading">Grants ending this year</div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card mb-3 bg-warning widget-chart text-white card-border">
-          <div class="widget-numbers"><%= @fields_covered %></div>
-          <div class="widget-subheading">Spanning Area of Interests</div>
-        </div>
-      </div>
-    </div>
-
     <div class='filters'>
       <%= form_for_filterrific @filterrific do |f| %>
         <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
           <%= f.label :with_title, 'Search by Title' %>
-          <%= f.text_field :with_title, class: "form-control"%>
+          <%= f.text_field :with_title, class: "form-control" %>
         </div>
 
         <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
@@ -47,35 +66,37 @@
 
         <!-- A Date picker -->
 
-        <div>
-          <%= f.submit 'Search', class: "mb-2 mr-2  btn btn-primary"  %>
+        <div style="margin-top: 2em">
+          <%= f.submit 'Search', class: "mb-2 mr-2  btn btn-primary" %>
+        </div>
       <% end %>
-    </div>
 
-    <div class='list'>
-      <table>
-        <thead>
-        <tr>
-          <th>Title</th>
-          <th>Fields</th>
-          <th>Amount</th>
-          <th>Submission Deadline</th>
-        </tr>
-        </thead>
 
-        <tbody>
-        <% @grants.each do |grant| %>
+      <div class='list'>
+        <table class="mb-0 table table-striped table-hover">
+          <thead>
           <tr>
-            <td><%= link_to grant.title, grant_path(grant) %></td>
-            <td><%= grant.fields.join(', ') %></td>
-            <td>Rs. <%= grant.amount %></td>
-            <td><%= pretty_date(grant.submission_deadline) %></td>
-           </tr>
-        <% end %>
-        </tbody>
-      </table>
+            <th>Title</th>
+            <th>Fields</th>
+            <th>Amount</th>
+            <th>Submission Deadline</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @grants.each do |grant| %>
+            <tr>
+              <td><%= link_to grant.title, grant_path(grant) %></td>
+              <td><%= grant.fields %></td>
+              <td>Rs. <%= grant.amount %></td>
+              <td><%= pretty_date(grant.submission_deadline) %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+      <%= render partial: 'partials/pagination', locals: {objects: @collaborations} %>
     </div>
-    <%= render partial: 'partials/pagination', locals: {objects: @collaborations} %>
   </div>
 </div>
 

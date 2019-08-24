@@ -4,36 +4,42 @@
     <div class="card-title">
       Papers Information
     </div>
+    <div style="margin-left: auto">
+
+
+      <%= link_to 'Back', papers_path, class: "mb-2 mr-2  btn btn-primary"  %>
+    </div>
   </div>
   <div class="card-body">
     <p>
+      <strong>User:</strong>
+      <%= @paper.user %>
+    </p>
+
+    <p>
+      <strong>Journal link:</strong>
+      <%= @paper.journal_link %>
+    </p>
+
+    <p>
+      <strong>Institute:</strong>
+      <%= @paper.institute %>
+    </p>
+
+    <p>
+      <strong>Fields:</strong>
+      <%= @paper.fields %>
+    </p>
+
+    <p>
+      <strong>Abstract:</strong>
+      <%= @paper.abstract %>
+    </p>
+
+
+
   </div>
-  <strong>User:</strong>
-</div>    <%= @paper.user %>
-</p>
-
-<p>
-  <strong>Journal link:</strong>
-  <%= @paper.journal_link %>
-</p>
-
-<p>
-  <strong>Institute:</strong>
-  <%= @paper.institute %>
-</p>
-
-<p>
-  <strong>Fields:</strong>
-  <%= @paper.fields %>
-</p>
-
-<p>
-  <strong>Abstract:</strong>
-  <%= @paper.abstract %>
-</p>
-
-
-<%= link_to 'Back', papers_path %>
+</div>
 
 
 

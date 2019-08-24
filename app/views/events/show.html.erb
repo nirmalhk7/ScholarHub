@@ -1,44 +1,58 @@
 <p id="notice"><%= notice %></p>
+<div class="main-card mb-3 card mt-4">
+  <div class="card-header">
+    <div class="card-title">
+      Event Details
+    </div>
 
-<p>
-  <strong>Institute:</strong>
-  <%= @event.institute %>
-</p>
+    <div style="margin-left: auto">
 
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
+      <%= link_to 'Edit', edit_event_path(@event), class: "mb-2 mr-2 btn-transition btn btn-outline-warning"  %>
+      <%= link_to 'Back', events_path, class: "mb-2 mr-2  btn btn-primary"  %>
+    </div>
+  </div>
+  <div class="card-body">
+    <p>
+      <strong>Institute:</strong>
+      <%= @event.institute %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+    <p>
+      <strong>Title:</strong>
+      <%= @event.title %>
+    </p>
 
-<p>
-  <strong>Fields:</strong>
-  <%= @event.fields %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @event.description %>
+    </p>
 
-<p>
-  <strong>Certification:</strong>
-  <%= @event.certification %>
-</p>
+    <p>
+      <strong>Fields:</strong>
+      <%= @event.fields %>
+    </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @event.price %>
-</p>
+    <p>
+      <strong>Certification:</strong>
+      <%= @event.certification %>
+    </p>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @event.start_date %>
-</p>
+    <p>
+      <strong>Price:</strong>
+      <%= @event.price %>
+    </p>
 
-<p>
-  <strong>End date:</strong>
-  <%= @event.end_date %>
-</p>
+    <p>
+      <strong>Start date:</strong>
+      <%= @event.start_date %>
+    </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+    <p>
+      <strong>End date:</strong>
+      <%= @event.end_date %>
+    </p>
+
+
+  </div>
+</div>
+

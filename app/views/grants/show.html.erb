@@ -1,24 +1,37 @@
 <p id="notice"><%= notice %></p>
+<div class="main-card mb-3 card mt-4">
+  <div class="card-header">
+    <div class="card-title">
+      Grant Information
+    </div>
+    <div style="margin-left: auto">
 
-<p>
-  <strong>Title:</strong>
-  <%= @grant.title %>
-</p>
+      <%= link_to 'Back', grants_path, class: "mb-2 mr-2  btn btn-primary"  %>
+    </div>
+  </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @grant.description %>
-</p>
+  <div class="card-body">
+    <p>
+      <strong>Title:</strong>
+      <%= @grant.title %>
+    </p>
 
-<p>
-  <strong>Submission deadline:</strong>
-  <%= @grant.submission_deadline %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @grant.description %>
+    </p>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @grant.amount %>
-</p>
+    <p>
+      <strong>Submission deadline:</strong>
+      <%= @grant.submission_deadline %>
+    </p>
 
-<%= link_to 'Edit', edit_grant_path(@grant) %> |
-<%= link_to 'Back', grants_path %>
+    <p>
+      <strong>Amount:</strong>
+      <%= @grant.amount %> INR
+    </p>
+
+
+
+  </div>
+</div>

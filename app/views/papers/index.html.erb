@@ -5,7 +5,7 @@
       <div class="widget-content-wrapper text-white">
         <div class="widget-content-left">
           <div class="widget-heading">Papers Published</div>
-          <div class="widget-subheading">Papers on ScholarHub</div>
+          <div class="widget-subheading">Papers on <%= WEB_DEFAULTS[:website_name] %></div>
         </div>
         <div class="widget-content-right">
           <div class="widget-numbers text-white"><span><%= @papers_count %></span></div>
@@ -92,10 +92,10 @@
           <%= f.text_field :with_author, class: "form-control" %>
         </div>
 
-        <div>
+        <div style="margin-top: 2em">
           <%= f.submit 'Search', class: "mb-2 mr-2  btn btn-primary" %>
+        </div>
       <% end %>
-      </div>
 
       <div class='list'>
         <table class="mb-0 table table-striped table-hover">
