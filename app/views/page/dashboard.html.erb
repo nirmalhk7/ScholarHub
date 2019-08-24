@@ -1,16 +1,62 @@
-<div class="main-card mb-3 card mt-4">
-  <div class="card-header">
-    <div class="card-title">
-      Your Profile
+<div class="row">
+  <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+    <div class="mb-3 main-card mt-4 card text-white" style="background-color: rgb(51, 51, 51); border-color: rgb(51, 51, 51);">
+      <div class="card-body">
+        <h5 class="text-white card-title">Featured Paper</h5>
+
+        <%# Featured Paper is stored as `@featured_paper` %>
+        <%= @featured_paper.abstract %>
+        <div class="card-subtitle text-white">
+          Find more here...
+        </div>
+      </div>
     </div>
   </div>
-  <div class="card-body">
-    <h1>
-      <%= current_user.name %>
-    </h1>
-    <h3>
-      Researcher at <%= current_user.institute.name %>
-    </h3>
-    <label>Email Address:&nbsp;</label><%= current_user.email %>
+
+  <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+    <div class="main-card mb-3 card mt-4">
+
+      <div class="card-body">
+
+
+        <h1 style="font-family: 'Lobster', cursive;">
+          <%= current_user.name %>
+        </h1>
+        <h3>
+          Researcher
+        </h3>
+        <h5>
+          <%= current_user.institute.name %>
+        </h5>
+        <strong>Email :</strong> <%= current_user.email %>
+        <br>
+        <strong>Phone Number:</strong> <%= current_user.phone_numbers %>
+        <br>
+        <strong>Interests:</strong>
+        <ul>
+          <% current_user.interests.each do |intr| %>
+            <li>
+              <%= intr %>
+            </li>
+          <%end %>
+        </ul>
+        <strong>Education:</strong>
+        <ul>
+          <% current_user.education.each do |edu| %>
+            <li>
+              <%= edu[2] %> - <%= edu[0] %> at <%= edu[1] %>
+            </li>
+          <%end %>
+        </ul>
+        <strong>Achievements:</strong>
+        <ul>
+          <% current_user.achievements.each do |ach| %>
+            <li>
+              (<%= ach[1] %>) - <%= ach[0] %>
+            </li>
+            <%end %>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

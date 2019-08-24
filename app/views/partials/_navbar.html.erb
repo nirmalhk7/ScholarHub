@@ -1,15 +1,10 @@
 <div class="app-header header-shadow">
   <div class="app-header__logo">
-    <div class="logo-src"><%= WEB_DEFAULTS[:website_name] %></div>
+    <div class="logo-src" style="font-family: 'Hepta Slab', serif;font-size: 1rem;
+    "><b><%= WEB_DEFAULTS[:website_name] %></b></div>
     <div class="header__pane ml-auto">
       <div>
-        <% if user_signed_in? %>
-        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
-                            <span class="hamburger-box">
-                                <span class="hamburger-inner"></span>
-                            </span>
-        </button>
-          <% end %>
+
       </div>
     </div>
   </div>
@@ -77,7 +72,9 @@
           </li>
 
           <li class="dropdown nav-item">
-
+            <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+              <i class='nav-link-icon fa fa-lock'> </i>Log Out
+            <% end %>
           </li>
         </ul>
       <% end %>
@@ -102,18 +99,7 @@
                     </div>
                   <% end %>
                 </a>
-                <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                  <button type="button" tabindex="0" class="dropdown-item">
-                    <%= link_to page_dashboard_path, class: "nav-link" do %>
-                      <i class='nav-link-icon fa fa-user'> </i>Dashboard
-                    <% end %>
-                  </button>
-                  <button type="button" tabindex="0" class="dropdown-item">
-                    <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
-                      <i class='nav-link-icon fa fa-lock'> </i>Log Out
-                    <% end %>
-                  </button>
-                </div>
+
               </div>
             </div>
             <div class="widget-content-left  ml-3 header-user-info">
