@@ -3,36 +3,30 @@
 <div class="main-card mb-3 card mt-4">
   <div class="card-header">
     <div class="card-title">
-      Collaboration Request
+      <%= @collaboration.title %>
     </div>
     <div style="margin-left: auto">
 
-      <%= link_to 'Edit', edit_collaboration_path(@collaboration), class: "mb-2 mr-2 btn-transition btn btn-outline-warning" %>
+      <% if current_user == @collaboration.user %>
+        <%= link_to 'Edit', edit_collaboration_path(@collaboration), class: "mb-2 mr-2 btn-transition btn btn-outline-warning" %>
+      <% end %>
       <%= link_to 'Back', collaborations_path, class: "mb-2 mr-2  btn btn-primary" %>
     </div>
   </div>
 
   <div class="card-body">
     <p>
-      <strong>User:</strong>
-      <%= @collaboration.user %>
-    </p>
-
-    <p>
-      <strong>Title:</strong>
-      <%= @collaboration.title %>
-    </p>
-
-    <p>
-      <strong>Description:</strong>
-      <%= @collaboration.description %>
+      <strong>By:</strong>
+      <%= @collaboration.user.name %>
     </p>
 
     <p>
       <strong>Fields:</strong>
-      <%= @collaboration.fields %>
+      <%= @collaboration.fields.join(',') %>
     </p>
 
+    <p>
+      <%= @collaboration.description %>
+    </p>
   </div>
 </div>
-
