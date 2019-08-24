@@ -49,24 +49,51 @@
   <div class="card-body">
     <div class='filters'>
       <%= form_for_filterrific @filterrific do |f| %>
-        <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
-          <%= f.label :with_title, 'Search by Title' %>
-          <%= f.text_field :with_title, class: "form-control" %>
+        <div class="mb-2 w1 mr-sm-2 mb-sm-0 position-relative form-group row">
+          <div class="col-lg-1 col-md-1"></div>
+          <div class="control-label col-lg-3 col-md-3 col-sm-4 col-xs-12">
+            <%= f.label :with_title, 'Search by Title' %>
+          </div>
+          <div class="input-group col-lg-7 col-md-7 col-sm-8 col-xs-12">
+            <%= f.text_field :with_title, class: "form-control" %></div>
         </div>
 
-        <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
-          <%= f.label :with_description, 'Search by Description' %>
-          <%= f.text_field :with_description, class: "form-control" %>
+        <div class="mb-2  w1 mr-sm-2 mb-sm-0 position-relative form-group row">
+          <div class="col-lg-1 col-md-1"></div>
+          <div class="control-label col-lg-3 col-md-3 col-sm-4 col-xs-12">
+            <%= f.label :with_description, 'Search by Description' %>
+          </div>
+          <div class="input-group col-lg-7 col-md-7 col-sm-8 col-xs-12">
+
+            <%= f.text_field :with_description, class: "form-control" %>
+          </div>
         </div>
 
-        <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
-          <%= f.label :with_fields, 'Search by Relevant Fields' %>
-          <%= f.text_field :with_fields, class: "form-control" %>
+        <div class="mb-2 w1 mr-sm-2 mb-sm-0 position-relative form-group row">
+          <div class="col-lg-1 col-md-1"></div>
+
+          <div class="control-label col-lg-3 col-md-3 col-sm-4 col-xs-12">
+            <%= f.label :with_fields, 'Search by Relevant Fields' %>
+          </div>
+          <div class="input-group col-lg-7 col-md-7 col-sm-8 col-xs-12">
+
+            <%= f.text_field :with_fields, class: "form-control" %>
+          </div>
         </div>
 
-        <!-- A Date picker -->
+        <div class="mb-2 w1 mr-sm-2 mb-sm-0 position-relative form-group row">
+          <div class="col-lg-1 col-md-1"></div>
 
-        <div style="margin-top: 2em">
+          <div class="control-label col-lg-3 col-md-3 col-sm-4 col-xs-12">
+            <%= f.label :with_author, 'Search by Creator' %>
+          </div>
+          <div class="input-group col-lg-7 col-md-7 col-sm-8 col-xs-12">
+            <%= f.text_field :with_author, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: 2em">
+          <div class="col-lg-1 col-md-1"></div>
           <%= f.submit 'Search', class: "mb-2 mr-2  btn btn-primary" %>
         </div>
       <% end %>
