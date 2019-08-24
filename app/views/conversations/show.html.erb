@@ -1,14 +1,16 @@
 <p id="notice"><%= notice %></p>
+<div class="main-card mb-3 card mt-4">
+  <div class="card-header">
+    <div class="card-title">
+      <%= @partner.name %>
+    </div>
 
-<p>
-  <strong>Reciever:</strong>
-  <%= @conversation.reciever_id %>
-</p>
+    <div style="margin-left: auto">
+      <%= link_to 'Back', conversations_path, class: 'mb-2 mr-2 btn btn-primary' %>
+    </div>
+  </div>
 
-<p>
-  <strong>Sender:</strong>
-  <%= @conversation.sender_id %>
-</p>
-
-<%= link_to 'Edit', edit_conversation_path(@conversation) %> |
-<%= link_to 'Back', conversations_path %>
+  <div id='messages' class="card-body">
+    <%= render partial: 'messages', locals: {conversation: @conversation, messages: @messages, partner: @partner} %>
+  </div>
+</div>

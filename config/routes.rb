@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :conversations
+  resources :conversations do
+    member do
+      post 'add_message'
+    end
+  end
   root to: 'page#dashboard'
 
   namespace :page do

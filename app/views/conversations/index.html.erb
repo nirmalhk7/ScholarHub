@@ -11,12 +11,16 @@
   <div class="card-body">
     <% @conversations.each do |conversation| %>
       <div class="row">
-        <%= @users.find { |user| [conversation.inviter_id, conversation.invitee_id].include?(user.id)}.name %>
-        <br>
+        <% user = @users.find { |user| [conversation.inviter_id, conversation.invitee_id].include?(user.id)} %>
+        <p><%= link_to user.name, conversation_path(conversation) %><br>
         <% if conversation.messages.present? %>
-          <%= conversation.messages.last.content %>
+          <% if conversation.messages.last.sender_id == current_user.id %>
+            Me: <%= conversation.messages.last.content %><br>
+          <% else %>
+            Them: <%= conversation.messages.last.content %><br>
+          <% end %>
         <% else %>
-          No messages sent
+          No messages sent</p>
         <% end %>
       </div>
     <% end %>
