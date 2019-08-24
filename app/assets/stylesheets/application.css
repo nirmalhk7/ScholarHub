@@ -8,6 +8,10 @@
  =========================================================
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
+.w1{
+    margin-top:0.5em;
+    margin-bottom: 0.5em;
+}
 .border-primary {
     border-color: #3f6ad8
 }
@@ -4712,7 +4716,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 }
 
 .card-title {
-    margin-bottom: .75rem
+    margin-bottom: .325rem
 }
 
 .card-subtitle {

@@ -1,5 +1,14 @@
-<h1>New Collaboration</h1>
+<div class="main-card mb-3 card mt-4">
+  <div class="card-header">
+    <div class="card-title">
+      New Collaboration Request
+    </div>
+    <div style="margin-left: auto">
+      <%= link_to 'Back', collaborations_path, class: "mb-2 mr-2 btn btn-primary"%>
 
-<%= render 'form', collaboration: @collaboration %>
-
-<%= link_to 'Back', collaborations_path %>
+    </div>
+  </div>
+  <div class="card-body">
+    <%= render 'form', collaboration: @collaboration %>
+  </div>
+</div>
