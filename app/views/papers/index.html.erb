@@ -1,11 +1,13 @@
 <p id="notice"><%= notice %></p>
-<div class="mb-3 card text-white card-body" style="background-color: rgb(51, 51, 51); border-color: rgb(51, 51, 51);">
-  <h5 class="text-white card-title">Featured Paper</h5>
+<div class="main-card mt-4 mb-3 card text-white " style="background-color: rgb(51, 51, 51); border-color: rgb(51, 51, 51);">
+  <div class="card-body">
+    <h5 class="text-white card-title">Featured Paper</h5>
 
-  <%# Featured Paper is stored as `@featured_paper` %>
-  <%= @featured_paper.abstract %>
-  <div class="card-subtitle text-white">
-    Find more here...
+    <%# Featured Paper is stored as `@featured_paper` %>
+    <%= @featured_paper.abstract %>
+    <div class="card-subtitle text-white">
+      Find more here...
+    </div>
   </div>
 </div>
 <div class="row">
