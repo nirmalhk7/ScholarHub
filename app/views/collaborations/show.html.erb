@@ -9,6 +9,8 @@
 
       <% if current_user == @collaboration.user %>
         <%= link_to 'Edit', edit_collaboration_path(@collaboration), class: "mb-2 mr-2 btn-transition btn btn-outline-warning" %>
+      <% else %>
+        <%= link_to 'Contact', conversations_path(inviter_id: current_user.id, invitee_id: @collaboration.user.id), method: :post, class: 'mb-2 mr-2 btn-transistion btn btn-outline-warning' %>
       <% end %>
       <%= link_to 'Back', collaborations_path, class: "mb-2 mr-2  btn btn-primary" %>
     </div>

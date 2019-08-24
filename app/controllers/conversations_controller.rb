@@ -4,7 +4,8 @@ class ConversationsController < ApplicationController
   # GET /conversations
   # GET /conversations.json
   def index
-    @conversations = Conversation.all
+    @conversations = Conversation.involved(current_user.id).includes(:messages)
+    @users = User.where(id: @conversations.pluck(:inviter_id, :invitee_id).flatten.uniq - [current_user.id])
   end
 
   # GET /conversations/1
@@ -69,6 +70,6 @@ class ConversationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conversation_params
-      params.require(:conversation).permit(:reciever_id_id, :sender_id_id)
+      params.permit(:inviter_id, :invitee_id)
     end
 end

@@ -1,29 +1,24 @@
+
 <p id="notice"><%= notice %></p>
 
-<h1>Conversations</h1>
+<div class="main-card mb-3 card mt-4">
+  <div class="card-header">
+    <div class="card-title">
+      Messages
+    </div>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Reciever</th>
-      <th>Sender</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div class="card-body">
     <% @conversations.each do |conversation| %>
-      <tr>
-        <td><%= conversation.reciever_id %></td>
-        <td><%= conversation.sender_id %></td>
-        <td><%= link_to 'Show', conversation %></td>
-        <td><%= link_to 'Edit', edit_conversation_path(conversation) %></td>
-        <td><%= link_to 'Destroy', conversation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="row">
+        <%= @users.find { |user| [conversation.inviter_id, conversation.invitee_id].include?(user.id)}.name %>
+        <br>
+        <% if conversation.messages.present? %>
+          <%= conversation.messages.last.content %>
+        <% else %>
+          No messages sent
+        <% end %>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Conversation', new_conversation_path %>
+  </div>
+</div>
