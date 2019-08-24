@@ -1,24 +1,23 @@
-# README
+# ScholarHub
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Project Name**: ScholarHub - Research And Collaboration Portal for NITs
 
-Things you may want to cover:
+**Title Track**: InterNIT Communication
 
-* Ruby version
+**Problem Statement**
 
-* System dependencies
+Despite the Government's stress for R&D across various sectors within India, we felt the researchers lacked a uniform platform to enlighten themselves to interact with their fellow researchers and to look for grants issued by Goverment and Universities
 
-* Configuration
+- We realized the future of engineering lies in interdiscplinary pursuits: Knowledge in mutliple fields is essential. There is no central repository of research papers written by NIT scholars which we felt was a requirement in this age.
+- Researchers when in need of a fellow researchers with a particular skillset have to resort to word of mouth. This restricts the pool of talent that can be accessed.
+- Researchers have to rely on word of mouth and suggestions to find out about applicable grants, which is often too late.
+- There is no central source of events and workshops of interest for NITs.
 
-* Database creation
+**Our Solution**
 
-* Database initialization
+The idea behind ScholarHub is to promote research culture within NIT's by making information about funding, human resource development and provision of neccesary facilities at one central place.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- This eliminates the need to go through another NIT's research portal to find research papers.
+- We provide a list of fellow researchers who are in need of collaborators. We provide enough personal information and a way of communication to identify right partners.
+- We aggregrate information about upcoming events of interest across all NITs, enabling interested scholars to pursue more workshops.
+- We provide a list of upcoming grants and their essential information that institutions and governments offer.
