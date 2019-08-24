@@ -114,7 +114,8 @@
           <% @grants.each do |grant| %>
             <tr>
               <td><%= link_to grant.title, grant_path(grant) %></td>
-              <td><%= grant.fields %></td>
+              <td><%= grant.fields %>
+                </td>
               <td>Rs. <%= grant.amount %></td>
               <td><%= pretty_date(grant.submission_deadline) %></td>
             </tr>

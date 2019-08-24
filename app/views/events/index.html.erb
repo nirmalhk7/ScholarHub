@@ -119,9 +119,25 @@
             <tr>
               <td><%= link_to event.title, event_path(event) %></td>
               <td><%= event.institute.name %></td>
-              <td><% if event.certification %>Yes<% else %>No<% end %></td>
+              <td>
+                <% if event.certification %>
+                  <div class="mb-2 mr-2 badge badge-success">
+                    Yes
+                  </div>
+                <% else %>
+                  <div class="mb-2 mr-2 badge badge-warning">
+                    No
+                  </div>
+                <% end %>
+              </td>
               <td>Rs. <%= event.price %></td>
-              <td><%= event.fields.join(',') %></td>
+              <td>
+                <% event.fields.each do |evnt| %>
+                  <div class="mb-2 mr-2 badge badge-secondary">
+                    <%= evnt %>
+                  </div>
+                  <%end %>
+              </td>
               <td><%= pretty_date(event.start_date) %></td>
               <td><%= pretty_date(event.end_date) %></td>
             </tr>
