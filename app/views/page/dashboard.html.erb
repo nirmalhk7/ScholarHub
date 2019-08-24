@@ -1,0 +1,15 @@
+<div class="main-card mb-3 card mt-4">
+  <div class="card-header">
+    <div class="card-title">
+      Your Profile
+    </div>
+  </div>
+  <div class="card-body">
+    <h1>
+      <%= current_user.name %>
+    </h1>
+    <h3>
+      Researcher at <%= current_user.institute.name %>
+    </h3>
+  </div>
+</div>
