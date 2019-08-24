@@ -7,6 +7,17 @@ class Conversation < ApplicationRecord
 
   self.per_page = 5
 
+  def self.last_conversations(user_id)
+    conversations = involved(user_id)
+    conversations = conversations.select {|conversation| conversation.messages.present? }
+    conversations.sort! { |conversation| conversation.messages.last.created_at }.last(3)
+  end
+
+  def partner(user_id)
+    return User.find(invitee_id) if inviter_id == user_id
+    User.find(inviter_id)
+  end
+
   def self.seed(n_conversation)
     Message.destroy_all
     Conversation.destroy_all

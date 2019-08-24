@@ -66,6 +66,10 @@ class ConversationsController < ApplicationController
   def add_message
     @conversation.messages.create(message_params)
     load_messages
+    respond_to do |format|
+      format.html { render :show }
+      format.js
+    end
   end
 
   private
@@ -86,6 +90,6 @@ class ConversationsController < ApplicationController
     def load_messages
       partner_id = [@conversation.inviter_id, @conversation.invitee_id] - [current_user.id]
       @partner = User.find(partner_id.first)
-      @messages = Message.all
+      @messages = Message.where(conversation_id: @conversation.id)
     end
 end

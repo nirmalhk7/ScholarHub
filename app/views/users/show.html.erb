@@ -1,0 +1,58 @@
+<center>
+  <div class="main-card mb-3 card mt-4" style="width: 33%;">
+    <div class="card-header">
+      <div class="card-title">
+        Profile
+      </div>
+      <div style="margin-left: auto">
+        <%= link_to 'Contact', conversations_path(inviter_id: current_user.id, invitee_id: @user.id), method: :post, class: 'mb-2 mr-2 btn-transistion btn btn-outline-warning' %>
+        <%= link_to 'Back to Collaborations', collaborations_path, class: 'mb-2 mr-2 btn btn-primary' %>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <h1 style="font-family: 'Lobster', cursive;">
+        <%= @user.name %>
+      </h1>
+
+      <h3>
+        <%= @user.degree.name %>
+      </h3>
+
+      <h5>
+        <%= @user.institute.name %>
+      </h5>
+      <strong>Email :</strong> <%= @user.email %>
+      <br>
+      <strong>Phone Number:</strong>
+      <% @user.phone_numbers.each do |phn| %>
+          <%= phn %>&nbsp;&nbsp;
+      <%end %>
+      <br>
+      <strong>Interests:</strong>
+      <ul>
+        <% @user.interests.each do |intr| %>
+          <li>
+            <%= intr %>
+          </li>
+        <%end %>
+      </ul>
+      <strong>Education:</strong>
+      <ul>
+        <% @user.education.each do |edu| %>
+          <li>
+            <%= edu[2] %> - <%= edu[0] %> at <%= edu[1] %>
+          </li>
+        <%end %>
+      </ul>
+      <strong>Achievements:</strong>
+      <ul>
+        <% @user.achievements.each do |ach| %>
+          <li>
+            (<%= ach[1] %>) - <%= ach[0] %>
+          </li>
+          <%end %>
+      </ul>
+    </div>
+  </div>
+</center>
