@@ -1,0 +1,3 @@
+inner_html = ("<%= j render partial: 'messages', locals: {conversation: @conversation, messages: @messages, partner: @partner} %>");
+node = document.getElementById('messages')
+node.innerHTML = inner_html;

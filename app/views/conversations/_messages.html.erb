@@ -1,0 +1,23 @@
+<% messages.each do |message| %>
+  <div class='row'>
+    <% if message.sender_id == current_user.id %>
+      <% align = 'right' %>
+    <% else %>
+      <% align = 'left' %>
+    <% end %>
+    <p style="width: 100%; text-align: <%= align %>;">
+      <%= message.content %>
+    </p>
+  </div>
+<% end %>
+
+<%= form_with url: add_message_conversation_path(conversation) do |f| %>
+  <div class="input-group">
+    <%= f.hidden_field :reciever_id, value: partner.id %>
+    <%= f.hidden_field :sender_id, value: current_user.id %>
+    <%= f.text_field :content, class: 'form-control' %>
+    <div class="input-group-append">
+      <%= f.submit 'Reply', class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

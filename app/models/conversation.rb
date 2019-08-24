@@ -5,6 +5,8 @@ class Conversation < ApplicationRecord
     where(inviter_id: query).or(where(invitee_id: query))
   }
 
+  self.per_page = 5
+
   def self.seed(n_conversation)
     Message.destroy_all
     Conversation.destroy_all
