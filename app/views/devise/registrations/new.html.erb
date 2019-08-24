@@ -58,7 +58,7 @@
           <%= f.label :institute_id, 'Current Institute' %><br/>
         </div>
         <div class="input-group col-lg-7 col-md-7 col-sm-8 col-xs-12">
-          <%= f.collection_select :institute_id, Institute.all, :id, :name, prompt: true, class:"form-control"  %>
+          <%= f.collection_select :institute_id, Institute.all, :id, :name, {prompt: true}, {:class=>"mb-2 form-control"}  %>
         </div>
       </div>
       <div class="field row w1">
@@ -67,7 +67,7 @@
           <%= f.label :degree_id, 'Current Degree' %>
         </div>
         <div class="input-group col-lg-7 col-md-7 col-sm-8 col-xs-12">
-          <%= f.collection_select :degree_id, Degree.all, :id, :name, prompt: true,, {:class=>'my-custom-class'}  %>
+          <%= f.collection_select :degree_id, Degree.all, :id, :name, {prompt: true}, {:class=>'mb-2 form-control'}  %>
         </div>
       </div>
 
@@ -77,16 +77,19 @@
           <%= f.label :branch_id, 'Branch' %>
         </div>
         <div class="input-group col-lg-7 col-md-7 col-sm-8 col-xs-12">
-          <%= f.collection_select :branch_id, Branch.all, :id, :name, prompt: true, class:"mb-2 form-control"  %>
+          <%= f.collection_select :branch_id, Branch.all, :id, :name, {prompt: true}, {:class=>"mb-2 form-control"}  %>
         </div>
       </div>
 
-      <div class="actions">
+      <div class="actions w1 row">
+        <div class="col-lg-1 col-md-1"></div>
         <%= f.submit "Sign up", class:'mb-2 mr-2  btn btn-primary' %>
       </div>
     <% end %>
+    <div style="padding-bottom: 77px;padding-left:6em ">
 
-    <%= render "devise/shared/links" %>
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
 </div>
 
