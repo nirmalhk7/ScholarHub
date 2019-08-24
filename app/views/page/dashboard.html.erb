@@ -6,9 +6,20 @@
 
         <%# Featured Paper is stored as `@featured_paper` %>
         <%= @featured_paper.abstract %>
-        <div class="card-subtitle text-white">
-          Find more here...
-        </div>
+      </div>
+      <div class="card-footer">
+        More
+      </div>
+    </div>
+    <div class="main-card mb-3 card">
+      <div class="card-body">
+        <h5 class="card-title" style="padding-bottom: 1em;">Instant Messaging</h5>
+        <ul class="list-group">
+          <li class="list-group-item"><h5 class="list-group-item-heading">List group item heading&nbsp;<span class="badge badge-secondary badge-pill">14</span></h5>
+            <p class="list-group-item-text">Last Seen 23 May</p></li>
+          <li class="list-group-item"><h5 class="list-group-item-heading">List group item heading</h5>
+            <p class="list-group-item-text">Last Seen 32 May</p></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -30,7 +41,10 @@
         </h5>
         <strong>Email :</strong> <%= current_user.email %>
         <br>
-        <strong>Phone Number:</strong> <%= current_user.phone_numbers %>
+        <strong>Phone Number:</strong>
+        <% current_user.phone_numbers.each do |phn| %>
+            <%= phn %>&nbsp;&nbsp;
+        <%end %>
         <br>
         <strong>Interests:</strong>
         <ul>

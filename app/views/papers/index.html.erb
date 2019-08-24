@@ -138,7 +138,13 @@
             <tr>
               <td><%= link_to paper.title, paper_path(paper) %></td>
               <td><%= paper.user.name %></td>
-              <td><%= paper.fields.join(', ') %></td>
+              <td>
+                <% paper.fields.each do |flds| %>
+                  <div class="mb-2 mr-2 badge badge-secondary">
+                    <%= flds %>
+                  </div>
+                <%end %>
+              </td>
               <td><%= link_to 'Link', paper.journal_link %></td>
             </tr>
           <% end %>
