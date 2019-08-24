@@ -90,6 +90,8 @@ User.create(
     phone_numbers: [Faker::PhoneNumber.cell_phone]
   )
 end
+second = User.second
+User.first.update(interests: second.interests, achievements: second.achievements, description: second.description, education: second.education) 
 puts 'Users created'
 
 users = User.all
@@ -166,3 +168,6 @@ puts 'Papers created'
   )
 end
 puts 'Grants created'
+
+Conversation.seed(15)
+puts 'Conversations created'

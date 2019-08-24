@@ -32,7 +32,10 @@ class CollaborationsController < ApplicationController
   # POST /collaborations
   # POST /collaborations.json
   def create
-    @collaboration = Collaboration.new(collaboration_params)
+    creation_params = collaboration_params
+    creation_params[:fields] = serialize_to_array(collaboration_params[:fields])
+    creation_params[:user] = current_user
+    @collaboration = Collaboration.new(creation_params)
 
     respond_to do |format|
       if @collaboration.save

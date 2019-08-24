@@ -1,0 +1,35 @@
+<div class="main-card mb-3 card mt-4">
+  <div class="card-header">
+    <div class="card-title">
+      Contact
+    </div>
+    <div style="margin-left: auto">
+      <%= link_to 'Back', conversations_path, class: "mb-2 mr-2 btn btn-primary"%>
+
+    </div>
+  </div>
+  <div class="card-body">
+    <%= form_with model: Conversation.new do |form| %>
+      <%= form.hidden_field :reciever_id, value: params[:reciever_id] %>
+      <%= form.hidden_field :sender_id, value: current_user.id %>
+      <div class="field w1 row">
+        <div class="col-lg-1 col-md-1"></div>
+      </div>
+
+      <div class="field w1 row">
+        <div class="col-lg-1 col-md-1"></div>
+        <div class="control-label col-lg-3 col-md-3 col-sm-4 col-xs-12">
+          <%= form.label :content, 'Message' %>
+        </div>
+        <div class="input-group col-lg-7 col-md-7 col-sm-8 col-xs-12">
+          <%= form.text_field :contact, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="actions row">
+        <div class="col-lg-1 col-md-1"></div>
+        <%= form.submit 'Message', :class => 'mb-2 mr-2  btn btn-success' %>
+      </div>
+    <% end %>
+  </div>
+</div>

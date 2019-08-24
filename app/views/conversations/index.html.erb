@@ -1,0 +1,24 @@
+
+<p id="notice"><%= notice %></p>
+
+<div class="main-card mb-3 card mt-4">
+  <div class="card-header">
+    <div class="card-title">
+      Messages
+    </div>
+  </div>
+
+  <div class="card-body">
+    <% @conversations.each do |conversation| %>
+      <div class="row">
+        <%= @users.find { |user| [conversation.inviter_id, conversation.invitee_id].include?(user.id)}.name %>
+        <br>
+        <% if conversation.messages.present? %>
+          <%= conversation.messages.last.content %>
+        <% else %>
+          No messages sent
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
