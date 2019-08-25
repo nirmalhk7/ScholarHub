@@ -4,7 +4,10 @@
 
 **Title Track**: InterNIT Communication
 
-[Find Project Link here](https://shrouded-depths-90549.herokuapp.com)
+
+**Login Instructions**
+- [Find Project Link here](https://shrouded-depths-90549.herokuapp.com)
+- Log in with *abhishekkumar@gmail.com* and password *passwd*.
 
 **Problem Statement**
 
