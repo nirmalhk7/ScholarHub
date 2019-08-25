@@ -21,3 +21,18 @@ The idea behind ScholarHub is to promote research culture within NIT's by making
 - We provide a list of fellow researchers who are in need of collaborators. We provide enough personal information and a way of communication to identify right partners.
 - We aggregrate information about upcoming events of interest across all NITs, enabling interested scholars to pursue more workshops.
 - We provide a list of upcoming grants and their essential information that institutions and governments offer.
+
+![Landing page](https://raw.githubusercontent.com/abhishekkumar2718/ScholarHub/master/Screenshot%20from%202019-08-25%2015-32-23.png)
+
+![Login Page](https://raw.githubusercontent.com/abhishekkumar2718/ScholarHub/master/Screenshot%20from%202019-08-25%2015-32-33.png)
+
+![Dashboard](https://raw.githubusercontent.com/abhishekkumar2718/ScholarHub/master/Screenshot%20from%202019-08-25%2015-33-14.png)
+
+![Collaboration](https://raw.githubusercontent.com/abhishekkumar2718/ScholarHub/master/Screenshot%20from%202019-08-25%2015-33-49.png)
+
+![Collaboration Request Detail](https://raw.githubusercontent.com/abhishekkumar2718/ScholarHub/master/Screenshot%20from%202019-08-25%2015-34-00.png)
+
+![Events](https://raw.githubusercontent.com/abhishekkumar2718/ScholarHub/master/Screenshot%20from%202019-08-25%2015-34-12.png)
+![Grants](https://raw.githubusercontent.com/abhishekkumar2718/ScholarHub/master/Screenshot%20from%202019-08-25%2015-34-34.png)
+![Grants Description](https://raw.githubusercontent.com/abhishekkumar2718/ScholarHub/master/Screenshot%20from%202019-08-25%2015-34-46.png)
+
