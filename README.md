@@ -2,6 +2,8 @@
 
 **Project Name**: ScholarHub - Research And Collaboration Portal for NITs
 
+**Built By**: Abhishek Kumar and Nirmal Khedkar
+
 **Title Track**: InterNIT Communication
 
 
