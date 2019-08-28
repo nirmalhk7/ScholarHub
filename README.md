@@ -4,6 +4,7 @@
 
 **Built By**: Abhishek Kumar and Nirmal Khedkar
 
+**Accolades Recieved**: 5th place in NIT Conclave 2019, 2nd place overall.
 **Title Track**: InterNIT Communication
 
 
