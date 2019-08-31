@@ -2,9 +2,10 @@
 
 **Project Name**: ScholarHub - Research And Collaboration Portal for NITs
 
-**Built By**: Abhishek Kumar and Nirmal Khedkar
+**Built By**: [Abhishek Kumar](https://abhishekkumar2718.github.io) and Nirmal Khedkar
 
 **Accolades Recieved**: 5th place in NIT Conclave 2019, 2nd place overall.
+
 **Title Track**: InterNIT Communication
 
 
